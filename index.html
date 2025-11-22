@@ -6,7 +6,26 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="app"></div>
+  <div class="container">
+    <h1>To-Do List Pro</h1>
+
+    <div class="add-area">
+        <input type="text" id="taskInput" placeholder="Digite uma tarefa..." />
+        <button id="addBtn">Adicionar</button>
+    </div>
+
+    <div class="filters">
+        <select id="statusFilter">
+            <option value="all">Todos</option>
+            <option value="pending">Pendentes</option>
+            <option value="done">Concluídos</option>
+        </select>
+
+        <input type="text" id="searchInput" placeholder="Buscar..." />
+    </div>
+
+    <ul id="taskList"></ul>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
