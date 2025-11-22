@@ -54,8 +54,7 @@ Substitua `<div id="app"></div>` por:
 
 ---
 
-## 🎯 Etapa 3 — Criar o Array de Tarefas (Memória)
-
+## ➕ Etapa 3 — Adicionar Tarefa (CREATE)
 ```javascript
 let tasks = [];
 ```
@@ -70,10 +69,6 @@ Cada tarefa:
   priority: "normal"
 }
 ```
-
----
-
-## ➕ Etapa 4 — Adicionar Tarefa (CREATE)
 
 ```javascript
 document.getElementById("addBtn").addEventListener("click", addTask);
@@ -98,7 +93,7 @@ function addTask() {
 
 ---
 
-## 🖼 Etapa 5 — Renderizar Tarefas
+## 🖼 Etapa 4 — Renderizar Tarefas
 
 ```javascript
 function renderTasks() {
@@ -125,7 +120,7 @@ function renderTasks() {
 
 ---
 
-## 🔄 Etapa 6 — Marcar como Concluída
+## 🔄 Etapa 5 — Marcar como Concluída
 
 ```javascript
 function attachEvents() {
@@ -143,7 +138,7 @@ function attachEvents() {
 
 ---
 
-## ❌ Etapa 7 — Remover Tarefa (DELETE)
+## ❌ Etapa 6 — Remover Tarefa (DELETE)
 
 ```javascript
 document.querySelectorAll(".del").forEach(btn =>
@@ -158,7 +153,7 @@ document.querySelectorAll(".del").forEach(btn =>
 
 ---
 
-## 🔍 Etapa 8 — Filtros (Status + Busca)
+## 🔍 Etapa 7 — Filtros (Status + Busca)
 
 ```javascript
 document.getElementById("statusFilter").addEventListener("change", renderTasks);
@@ -183,7 +178,7 @@ function applyFilters() {
 
 ---
 
-## 💾 Etapa 9 — Persistência com localStorage
+## 💾 Etapa 8 — Persistência com localStorage
 
 Salvar:
 
@@ -211,7 +206,7 @@ renderTasks();
 
 ---
 
-## ⭐ Etapa 10 — Extensão: Prioridade das Tarefas
+## ⭐ Etapa 9 — Extensão: Prioridade das Tarefas
 
 Adicionar seletor no HTML:
 
@@ -240,7 +235,7 @@ tasks.sort((a, b) => {
 
 ---
 
-## 🌙 Etapa 11 — Tema Claro/Escuro
+## 🌙 Etapa 10 — Tema Claro/Escuro
 
 HTML:
 
@@ -268,7 +263,7 @@ body.dark {
 
 ---
 
-## 📦 Etapa 12 — Finalização
+## 📦 Etapa 11 — Finalização
 - Testar tudo (CRUD, filtros, busca, persistência)
 - Organizar o código em funções pequenas
 - Melhorar UX e espaçamentos
