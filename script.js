@@ -48,5 +48,17 @@ function renderTasks(){
         ul.appendChild(li)
 
         // na etapa 5 vamos criar a função de marcar como concluída
+        attachEvents()
+    })
+}
+
+function attachEvents(){
+    document.querySelectorAll(".checkTask").forEach(c => {
+        c.addEventListener("change", e => {
+            const id = parseInt(e.target.dataset.id)
+            const task = tasks.find(t => t.id === id)
+            task?.done = e.target.checked
+            // função de saveTasks aqui nas próximas etapas
+        })
     })
 }
