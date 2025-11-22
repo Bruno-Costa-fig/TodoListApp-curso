@@ -1,6 +1,7 @@
 # 📝 To-Do List Pro — Passo a Passo Completo
 
 ## 🔧 Etapa 1 — Criar a Estrutura Base do Projeto
+
 1. Criar pasta **todo-pro**
 2. Criar arquivos:
    - `index.html`
@@ -55,6 +56,7 @@ Substitua `<div id="app"></div>` por:
 ---
 
 ## ➕ Etapa 3 — Adicionar Tarefa (CREATE)
+
 ```javascript
 let tasks = [];
 ```
@@ -106,9 +108,11 @@ function renderTasks() {
     const li = document.createElement("li");
 
     li.innerHTML = `
-      <input type="checkbox" ${t.done ? "checked" : ""} data-id="${t.id}" class="chk" />
-      <span class="${t.done ? "done" : ""}">${t.text}</span>
-      <button class="del" data-id="${t.id}">🗑</button>
+     <li>
+        <input type="checkbox" ${t.done  ? "checked" : ""} data-id="${t.id} class="checkTask" />
+        <span class="${t.done ? "done" : ""}">${t.text}</span>
+        <button class="del" data-id="${t.id}">🗑</button>
+      </li>
     `;
 
     ul.appendChild(li);
@@ -264,6 +268,7 @@ body.dark {
 ---
 
 ## 📦 Etapa 11 — Finalização
+
 - Testar tudo (CRUD, filtros, busca, persistência)
 - Organizar o código em funções pequenas
 - Melhorar UX e espaçamentos
