@@ -128,15 +128,31 @@ function renderTasks() {
 
 ```javascript
 function attachEvents() {
-  document.querySelectorAll(".chk").forEach(c =>
-    c.addEventListener("change", e => {
-      const id = parseInt(e.target.dataset.id);
-      const task = tasks.find(t => t.id === id);
-      task.done = e.target.checked;
-      saveTasks();
-      renderTasks();
+    const ul = $id("taskList")
+
+    ul.addEventListener('change', e => {
+        if (!e.target.matches('.checkTask')) return
+        
+        // garante que id bate com o tipo do task.id (Number)
+        const id = Number(e.target.dataset.id)
+        const task = tasks.find(t => t.id === id)
+        
+        if (task) {
+            task.done = e.target.checked
+            // se quiser persistir, salva aqui
+            renderTasks()
+        } else {
+            console.warn('Task não encontrada para id', id)
+        }
     })
-  );
+    
+    ul.addEventListener('click', e => {
+        if (!e.target.matches('.delTask')) return
+
+        const id = Number(e.target.dataset.id)
+        tasks = tasks.filter(t => t.id !== id)
+        renderTasks()
+    })
 }
 ```
 
