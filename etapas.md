@@ -173,7 +173,11 @@ document.querySelectorAll(".del").forEach(btn =>
 
 ---
 
-## 🔍 Etapa 7 — Filtros (Status + Busca)
+## 🔍 Etapa 7 — Estilização - parte 1
+
+---
+
+## 🔍 Etapa 8 — Filtros (Status + Busca)
 
 ```javascript
 document.getElementById("statusFilter").addEventListener("change", renderTasks);
@@ -198,7 +202,7 @@ function applyFilters() {
 
 ---
 
-## 💾 Etapa 8 — Persistência com localStorage
+## 💾 Etapa 9 — Persistência com localStorage
 
 Salvar:
 
@@ -226,7 +230,7 @@ renderTasks();
 
 ---
 
-## ⭐ Etapa 9 — Extensão: Prioridade das Tarefas
+## ⭐ Etapa 10 — Extensão: Prioridade das Tarefas
 
 Adicionar seletor no HTML:
 
@@ -255,7 +259,11 @@ tasks.sort((a, b) => {
 
 ---
 
-## 🌙 Etapa 10 — Tema Claro/Escuro
+## 🔍 Etapa 11 — Estilização - parte 2
+
+---
+
+## 🌙 Etapa 12 — Tema Claro/Escuro
 
 HTML:
 

@@ -1,67 +1,266 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>To-Do List Pro</title>
 
   <style>
-    :root{
-      --bg:#ffffff; --text:#0b2140; --muted:#6b7a8a;
-      --card:#f6f9fc; --accent:#00509D; --accent-strong:#00296B;
-      --good:#2ea44f; --danger:#d0363a;
-      --success-bg:#eaf6ee;
-      --radius:12px;
-    }
-    [data-theme="dark"]{
-      --bg:#071022; --text:#e6eef8; --muted:#9fb0c7;
-      --card:#062032; --accent:#65E300; --accent-strong:#298D1;
-      --success-bg:#07361a;
+    :root {
+      --bg: #ffffff;
+      --text: #0b2140;
+      --muted: #6b7a8a;
+      --card: #f6f9fc;
+      --accent: #00509D;
+      --accent-strong: #00296B;
+      --good: #2ea44f;
+      --danger: #d0363a;
+      --success-bg: #eaf6ee;
+      --radius: 12px;
     }
 
-    *{box-sizing:border-box;font-family: Inter, Roboto, system-ui, "Segoe UI", Arial;}
-    body{margin:0;background:var(--bg);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
-    .app{
-      width:100%; max-width:900px; background:linear-gradient(180deg, rgba(255,255,255,0.6), transparent) , var(--card);
-      border-radius:var(--radius); padding:18px; box-shadow:0 10px 30px rgba(2,6,23,0.12);
+    [data-theme="dark"] {
+      --bg: #071022;
+      --text: #e6eef8;
+      --muted: #9fb0c7;
+      --card: #062032;
+      --accent: #65E300;
+      --accent-strong: #298D1;
+      --success-bg: #07361a;
     }
-    header{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:12px;}
-    .title{display:flex;gap:12px;align-items:center;}
-    .logo{width:48px;height:48px;border-radius:10px;background:var(--accent);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
-    h1{font-size:18px;margin:0;}
-    .controls{display:flex;gap:8px;align-items:center;}
-    .btn{border:0;padding:8px 12px;border-radius:10px;background:var(--accent);color:white;cursor:pointer;font-weight:600}
-    .btn.ghost{background:transparent;color:var(--accent);border:1px solid rgba(0,0,0,0.06)}
-    .btn.small{padding:6px 8px;font-size:13px;border-radius:8px}
-    .row{display:flex;gap:8px;align-items:center}
-    .form{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-    input[type="text"], select{padding:10px 12px;border-radius:10px;border:1px solid rgba(0,0,0,0.08);min-width:0}
-    .list{margin-top:8px;display:flex;flex-direction:column;gap:8px}
-    .card{display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;background:var(--bg);border:1px solid rgba(0,0,0,0.04)}
-    .meta{display:flex;flex-direction:column;gap:4px;flex:1}
-    .meta .title{font-weight:700}
-    .muted{color:var(--muted);font-size:13px}
-    .controls-item{display:flex;gap:8px;align-items:center}
-    .pill{padding:6px 8px;border-radius:999px;background:#f1f5f9;font-weight:600;font-size:12px}
-    .priority{font-size:12px;padding:6px 8px;border-radius:8px}
-    .prio-high{background:#ffd9d9;color:var(--danger)}
-    .prio-medium{background:#fff4d6;color:#a56a00}
-    .prio-low{background:#eaffea;color:var(--good)}
 
-    .actions{display:flex;gap:8px;align-items:center}
-    .icon-btn{background:transparent;border:0;cursor:pointer;padding:6px;border-radius:8px}
-    .search{flex:1;min-width:160px}
-    .filters{display:flex;gap:6px;align-items:center}
-    .tag-active{outline:2px solid rgba(0,0,0,0.06);}
+    * {
+      box-sizing: border-box;
+      font-family: Inter, Roboto, system-ui, "Segoe UI", Arial;
+    }
 
-    footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px;color:var(--muted);font-size:13px}
-    @media (max-width:640px){
-      .form{flex-direction:column}
-      header{flex-direction:column;align-items:flex-start;gap:8px}
-      header .controls{width:100%;justify-content:space-between}
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 900px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), transparent), var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
+    }
+
+    header {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .title {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08)
+    }
+
+    h1 {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      border: 0;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      font-weight: 600
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid rgba(0, 0, 0, 0.06)
+    }
+
+    .btn.small {
+      padding: 6px 8px;
+      font-size: 13px;
+      border-radius: 8px
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+      align-items: center
+    }
+
+    .form {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap
+    }
+
+    input[type="text"],
+    select {
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      min-width: 0
+    }
+
+    .list {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px
+    }
+
+    .card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      border-radius: 10px;
+      background: var(--bg);
+      border: 1px solid rgba(0, 0, 0, 0.04)
+    }
+
+    .meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1
+    }
+
+    .meta .title {
+      font-weight: 700
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .controls-item {
+      display: flex;
+      gap: 8px;
+      align-items: center
+    }
+
+    .pill {
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      font-weight: 600;
+      font-size: 12px
+    }
+
+    .priority {
+      font-size: 12px;
+      padding: 6px 8px;
+      border-radius: 8px
+    }
+
+    .prio-high {
+      background: #ffd9d9;
+      color: var(--danger)
+    }
+
+    .prio-medium {
+      background: #fff4d6;
+      color: #a56a00
+    }
+
+    .prio-low {
+      background: #eaffea;
+      color: var(--good)
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      align-items: center
+    }
+
+    .icon-btn {
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 8px
+    }
+
+    .search {
+      flex: 1;
+      min-width: 160px
+    }
+
+    .filters {
+      display: flex;
+      gap: 6px;
+      align-items: center
+    }
+
+    .tag-active {
+      outline: 2px solid rgba(0, 0, 0, 0.06);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    @media (max-width:640px) {
+      .form {
+        flex-direction: column
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px
+      }
+
+      header .controls {
+        width: 100%;
+        justify-content: space-between
+      }
     }
   </style>
 </head>
+
 <body>
   <div class="app" id="app" data-theme="light">
     <header>
@@ -294,8 +493,8 @@
             // Basic validation and normalize
             const normalized = data.map(d => ({
               id: d.id || crypto.randomUUID(),
-              title: (d.title||'').toString(),
-              description: (d.description||'').toString(),
+              title: (d.title || '').toString(),
+              description: (d.description || '').toString(),
               priority: d.priority || 'medium',
               done: !!d.done,
               createdAt: d.createdAt || Date.now()
@@ -364,7 +563,7 @@
         if (newTitle === null) return; // cancel
         const newDesc = prompt('Editar descrição', item.description || '');
         if (newTitle.trim() === '') { alert('Título não pode ficar vazio'); return; }
-        this.store.update(id, { title: newTitle.trim(), description: (newDesc||'').trim() });
+        this.store.update(id, { title: newTitle.trim(), description: (newDesc || '').trim() });
         this.render();
       }
 
@@ -390,9 +589,9 @@
         // sort
         if (this.sort === 'priority') {
           const rank = { high: 3, medium: 2, low: 1 };
-          items.sort((a,b) => (rank[b.priority] - rank[a.priority]) || (b.createdAt - a.createdAt));
+          items.sort((a, b) => (rank[b.priority] - rank[a.priority]) || (b.createdAt - a.createdAt));
         } else {
-          items.sort((a,b) => b.createdAt - a.createdAt);
+          items.sort((a, b) => b.createdAt - a.createdAt);
         }
 
         return items;
@@ -482,4 +681,5 @@
     });
   </script>
 </body>
+
 </html>
