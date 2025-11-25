@@ -17,8 +17,11 @@ $id("addBtn").addEventListener('click', addTask)
 function addTask() {
     const input = $id("taskInput")
     const text = input.value.trim()
-    if (!text) return
-
+    if (!text) {
+        alert("A descrição é obrigatória!")
+        return
+    }
+    
     tasks.push({
         id: Date.now(),
         text,
