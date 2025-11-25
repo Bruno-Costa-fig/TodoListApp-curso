@@ -1,0 +1,108 @@
+    :root {
+        --bg: #ffffff;
+        --text: #0b2140;
+        --muted: #6b7a8a;
+        --card: #f6f9fc;
+        --accent: #00509D;
+        --accent-strong: #00296B;
+        --good: #2ea44f;
+        --danger: #d0363a;
+        --success-bg: #eaf6ee;
+        --radius: 12px;
+    }
+
+    * {
+        box-sizing: border-box;
+        font-family: Inter, Roboto, system-ui, "Segoe UI", Arial;
+    }
+
+    body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 900px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.6), transparent), var(--card);
+        border-radius: var(--radius);
+        padding: 1.2em;
+        box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
+    }
+
+    h1 {
+        font-size: 22px;
+        margin: 0;
+    }
+
+    .btn {
+        border: 0;
+        padding: 8px 12px;
+        border-radius: 10px;
+        background: var(--accent);
+        color: white;
+        cursor: pointer;
+        font-weight: 600;
+    }
+
+    .del {
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        padding: 6px;
+        border-radius: 8px;
+    }
+
+    input[type="text"],
+    select {
+        padding: 10px 12px;
+        border-radius: 10px;
+        margin-top: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        min-width: 0;
+    }
+
+    .list {
+        margin: 0;
+        margin-top: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        gap: 8px;
+        list-style: none;
+        /* fazer o li usar todo o espaço */
+        padding-inline-start: 0;
+    }
+
+    .card {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px;
+        border-radius: 10px;
+        background: var(--bg);
+        border: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .filters {
+        display: flex;
+        gap: 6px;
+        align-items: center
+    }
+
+    #searchInput {
+        flex: 1;
+        min-width: 160px;
+    }
+
+    .done {
+        text-decoration: line-through;
+        color: var(--muted)
+    }

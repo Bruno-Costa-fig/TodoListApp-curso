@@ -42,10 +42,10 @@ function renderTasks() {
         const li = document.createElement("li")
 
         li.innerHTML = `
-            <li>
+            <li class="card">
                 <input type="checkbox" ${t.done ? "checked" : ""} data-id="${t.id}" class="checkTask" />
                 <span class="${t.done ? "done" : ""}">${t.text}</span>
-                <button class="del" data-id="${t.id}">🗑</button>
+                <button class="del" data-id="${t.id}">🗑️</button>
             </li>
         `
 
