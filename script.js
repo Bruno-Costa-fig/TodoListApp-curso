@@ -78,18 +78,13 @@ function attachEvents() {
         }
     })
 
-    ul.addEventListener('click', e => {
-        if (!e.target.matches('.delTask')) return
-
-        const id = Number(e.target.dataset.id)
-        tasks = tasks.filter(t => t.id !== id)
-        renderTasks()
-    })
-
     // etapa 6
     document.querySelectorAll(".del").forEach(btn =>
         btn.addEventListener("click", e => {
             const id = parseInt(e.target.dataset.id);
+            
+            // validação para remover a tarefa
+            if(!confirm("Deseja realmente remover a tarefa?")) return;
             tasks = tasks.filter(t => t.id !== id);
             
             // aqui vai futuramente a função de salvar as tarefas
